@@ -10,6 +10,8 @@ const Login = (props) => {
     password: ''
   })
 
+  const [bannerMessage, setBannerMessage] = useState("Enter Your Username and Password")
+
 
   //boilerplate changehandler for text fields
   const handleChange = (event) => {
@@ -26,11 +28,13 @@ const Login = (props) => {
     axios.post(apiAuthUrl, userCredentials)
       .then(result => {
         console.log(result)
+        setBannerMessage("Enter Your Username and Password")
         localStorage.setItem('token', result.data.payload)
         props.history.push('/something/')
       })
       .catch(err=>{
         console.log(err)
+        setBannerMessage("You Entered an Incorrect Username or Password, Please Try Again")
       })
   }
 
@@ -40,7 +44,12 @@ const Login = (props) => {
       <section className="LoginBox">
         <article className="LoginCard">
           <h2>Login Page</h2>
-          <form>
+          <p>
+            {bannerMessage}
+          </p>
+          <form
+            onSubmit={(event) => handleLogin(event)}
+          >
             <input 
               type="text"
               name="username"
@@ -48,7 +57,7 @@ const Login = (props) => {
               value={userCredentials.username}
             />
             <input 
-              type="text"
+              type="password"
               name="password"
               onChange={handleChange}
               value={userCredentials.password}
