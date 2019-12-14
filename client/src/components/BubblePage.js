@@ -24,14 +24,15 @@ const BubblePage = () => {
   return (
     <>
       <Navigation />
-      <ColorList 
-        colors={colorList} 
-        updateColors={setColorList} 
-        colorUpdated={colorUpdated}
-        setColorUpdated={setColorUpdated}
-
-      />
-      <Bubbles colors={colorList} />
+      <div className="bubbles">
+        <ColorList 
+          colors={colorList} 
+          updateColors={setColorList} 
+          colorUpdated={colorUpdated}
+          setColorUpdated={setColorUpdated}
+        />
+        <Bubbles colors={colorList} />
+      </div>  
     </>
   );
 };

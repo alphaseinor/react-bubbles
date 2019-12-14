@@ -20,10 +20,6 @@ body,
   }
 }
 
-.spacer {
-  height: 100%;
-}
-
 .bubble-wrap {
   margin: 0 auto;
   display: flex;
@@ -61,9 +57,10 @@ body,
 }
 
 form {
-  margin-top: 60px;
-  display: flex;
+  display:flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
 
   legend {
     padding-left: 40px;
@@ -97,3 +94,39 @@ form {
     margin-top: 16px;
   }
 }
+
+body{
+  display: flex;
+  justify-content: center;
+}
+
+.container{
+  max-width:1000px;
+  
+}
+
+.App{
+  display: flex;
+  flex-direction: column;
+}
+
+.bubbles{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.addColorForm{
+  height: auto;
+
+  h3{
+    font-size: 1rem;
+    margin:0px;
+  }
+  form{
+    margin-top: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
