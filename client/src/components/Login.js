@@ -1,8 +1,39 @@
-import React from "react";
+import React, {useState} from 'react'
+import axios from 'axios'
 
-const Login = () => {
-  // make a post request to retrieve a token from the api
-  // when you have handled the token, navigate to the BubblePage route
+const Login = (props) => {
+
+  const apiAuthUrl = 'http://localhost:5000/api/login'
+
+  const [userCredentials, setUserCredentials] = useState({
+    username: '',
+    password: ''
+  })
+
+
+  //boilerplate changehandler for text fields
+  const handleChange = (event) => {
+    setUserCredentials({
+      ...userCredentials,
+      [event.target.name]: event.target.value
+    })
+  }
+
+  //login button pressed
+  const handleLogin = (event) => {
+    event.preventDefault()
+
+    axios.post(apiAuthUrl, userCredentials)
+      .then(result => {
+        localStorage.setItem('token', result.data.payload)
+        props.history.push('/something/')
+      })
+      .catch(err=>{
+        console.log(err)
+      })
+  }
+
+
   return (
     <>
       <h1>Welcome to the Bubble App!</h1>
@@ -11,4 +42,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Login
