@@ -3,7 +3,7 @@ import axiosWithAuth from './AxiosWithAuth'
 
 const initialColor = {
   color: "black",
-  code: { hex: "000000" }
+  code: { hex: "#" }
 };
 
 const ColorList = ({ colors, updateColors, colorUpdated, setColorUpdated }) => {
@@ -45,6 +45,7 @@ const ColorList = ({ colors, updateColors, colorUpdated, setColorUpdated }) => {
   };
 
   const addColor = color => { 
+    console.log(color)
     axiosWithAuth(localStorage.getItem('token')).post('http://localhost:5000/api/colors', color)
       .then(result => {
         console.log(result.data);
