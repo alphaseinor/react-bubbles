@@ -5,6 +5,7 @@ import "./styles.scss";
 
 import Login from "./components/Login";
 
+import PrivateRoute from './components/PrivateRoute'
 
 
 
@@ -13,6 +14,7 @@ function App() {
     <Router>
       <div className="App">
         <Route exact path="/" component={Login} />
+        <PrivateRoute path='/something/' component="something" />
       </div>
     </Router>
   );
