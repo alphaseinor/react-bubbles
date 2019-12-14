@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Pack } from "@potion/layout";
 import { Svg, Circle } from "@potion/element";
+import Navigation from "./Navigation"
 
 const Bubbles = ({ colors }) => {
   const [bubbleData, setBubbleData] = useState([]);
@@ -13,6 +14,8 @@ const Bubbles = ({ colors }) => {
   }, [colors]);
 
   return (
+    <>
+    <Navigation />
     <div className="bubble-wrap">
       <p>bubbles</p>
       <Svg width={400} height={400}>
@@ -47,6 +50,7 @@ const Bubbles = ({ colors }) => {
         </Pack>
       </Svg>
     </div>
+    </>
   );
 };
 

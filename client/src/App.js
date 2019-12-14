@@ -6,6 +6,7 @@ import "./styles.scss";
 import Login from "./components/Login";
 
 import PrivateRoute from './components/PrivateRoute'
+import BubblePage from './components/BubblePage'
 
 
 
@@ -14,7 +15,7 @@ function App() {
     <Router>
       <div className="App">
         <Route exact path="/" component={Login} />
-        <PrivateRoute path='/something/' component="something" />
+        <PrivateRoute path='/something/' component={BubblePage} />
       </div>
     </Router>
   );
