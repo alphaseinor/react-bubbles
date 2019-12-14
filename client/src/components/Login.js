@@ -7,8 +7,8 @@ const Login = (props) => {
   const apiAuthUrl = 'http://localhost:5000/api/login'
 
   const [userCredentials, setUserCredentials] = useState({
-    username: '',
-    password: ''
+    username: 'lambda',
+    password: 'school'
   })
 
   const [bannerMessage, setBannerMessage] = useState("Enter Your Username and Password")

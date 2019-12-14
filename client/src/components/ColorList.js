@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import axiosWithAuth from './AxiosWithAuth'
 
 const initialColor = {
-  color: "",
-  code: { hex: "" }
+  color: "black",
+  code: { hex: "000000" }
 };
 
 const ColorList = ({ colors, updateColors, colorUpdated, setColorUpdated }) => {
