@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import axios from 'axios'
+import {Redirect} from 'react-router-dom'
 
 const Login = (props) => {
 
@@ -41,31 +42,38 @@ const Login = (props) => {
 
   return (
     <>
-      <section className="LoginBox">
-        <article className="LoginCard">
-          <h2>Login Page</h2>
-          <p>
-            {bannerMessage}
-          </p>
-          <form
-            onSubmit={(event) => handleLogin(event)}
-          >
-            <input 
-              type="text"
-              name="username"
-              onChange={handleChange}
-              value={userCredentials.username}
-            />
-            <input 
-              type="password"
-              name="password"
-              onChange={handleChange}
-              value={userCredentials.password}
-            />
-            <button>Login</button>
-          </form>
-        </article>
-      </section>
+      {
+        localStorage.getItem('token')?(
+          <Redirect to='/something/' />      
+        ):( 
+          <>
+          <section className="LoginBox">
+            <article className="LoginCard">
+              <h2>Login Page</h2>
+              <p>
+                {bannerMessage}
+              </p>
+              <form
+                onSubmit={(event) => handleLogin(event)}
+              >
+                <input 
+                  type="text"
+                  name="username"
+                  onChange={handleChange}
+                  value={userCredentials.username}
+                />
+                <input 
+                  type="password"
+                  name="password"
+                  onChange={handleChange}
+                  value={userCredentials.password}
+                />
+                <button>Login</button>
+              </form>
+            </article>
+          </section>
+        </>
+      )}
     </>
   );
 };
