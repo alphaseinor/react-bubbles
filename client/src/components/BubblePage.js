@@ -3,6 +3,7 @@ import axios from "axios";
 
 import Bubbles from "./Bubbles";
 import ColorList from "./ColorList";
+import Navigation from './Navigation.js'
 
 const BubblePage = () => {
   const [colorList, setColorList] = useState([]);
@@ -11,6 +12,7 @@ const BubblePage = () => {
 
   return (
     <>
+      <Navigation />
       <ColorList colors={colorList} updateColors={setColorList} />
       <Bubbles colors={colorList} />
     </>

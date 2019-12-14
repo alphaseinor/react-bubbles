@@ -11,21 +11,25 @@ const Navigation = () => {
     window.location.href='/'
   }
   return(
-    <div>
-      {access?(
-        <div
-          className="logoutButton"
-          onClick={()=>logout()}
-        >
-          Logout
+    <div className="header">
+      <div className="companyName">
+        <div>
+          {access?(
+            <div
+              className="logoutButton"
+              onClick={()=>logout()}
+            >
+              Logout
+            </div>
+          ):(
+            <div
+              className="logoutButton"
+            >
+              Logging Out
+            </div>
+          )}
         </div>
-      ):(
-        <div
-          className="logoutButton"
-        >
-          Logging Out
-        </div>
-      )}
+      </div>
     </div>
   )
 } 
