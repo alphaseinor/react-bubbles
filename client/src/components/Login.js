@@ -25,6 +25,7 @@ const Login = (props) => {
 
     axios.post(apiAuthUrl, userCredentials)
       .then(result => {
+        console.log(result)
         localStorage.setItem('token', result.data.payload)
         props.history.push('/something/')
       })
@@ -36,8 +37,26 @@ const Login = (props) => {
 
   return (
     <>
-      <h1>Welcome to the Bubble App!</h1>
-      <p>Build a login page here</p>
+      <section className="LoginBox">
+        <article className="LoginCard">
+          <h2>Login Page</h2>
+          <form>
+            <input 
+              type="text"
+              name="username"
+              onChange={handleChange}
+              value={userCredentials.username}
+            />
+            <input 
+              type="text"
+              name="password"
+              onChange={handleChange}
+              value={userCredentials.password}
+            />
+            <button>Login</button>
+          </form>
+        </article>
+      </section>
     </>
   );
 };
