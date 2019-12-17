@@ -13,6 +13,7 @@ const Bubbles = ({ colors }) => {
   }, [colors]);
 
   return (
+    <>
     <div className="bubble-wrap">
       <p>bubbles</p>
       <Svg width={400} height={400}>
@@ -47,6 +48,7 @@ const Bubbles = ({ colors }) => {
         </Pack>
       </Svg>
     </div>
+    </>
   );
 };
 
